@@ -1,8 +1,9 @@
+import "dotenv/config";
 import express from "express";
 
 const app = express();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -27,8 +28,6 @@ app.get("/teas/:id", (req, res) => {
   }
   return res.status(200).send(tea);
 });
-
-
 
 app.listen(port, () => {
   console.log(`Server is running at port :${port}`);
